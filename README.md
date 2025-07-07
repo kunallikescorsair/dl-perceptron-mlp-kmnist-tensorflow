@@ -1,47 +1,94 @@
-⚠️ Academic Integrity Notice:
-This repository is shared publicly for learning and demonstration purposes only. Unauthorized copying or direct submission of this work for academic credit is strictly prohibited and may be considered academic misconduct.
+# Neural Networks – Perceptron from Scratch and MLPs on KMNIST
 
-# 🧠 Neural Networks – Perceptron and Custom MLPs on KMNIST
+This project is part of the Deep Learning (94691) course for the Master of Data Science and Innovation at the University of Technology Sydney (UTS).  
+It is divided into two parts: building a Perceptron from scratch using NumPy and training multiple Multi-Layer Perceptrons (MLPs) on the KMNIST dataset using PyTorch.
 
-This project explores building a Perceptron from scratch and training multiple fully connected neural network models on the KMNIST dataset.  
-Developed as part of the **Deep Learning (94691)** course for the **Master of Data Science and Innovation** at **UTS**.
+---
 
-## 📄 Project Overview
-- **Part A:** Implemented a multi-class Perceptron from scratch using only NumPy.
-- **Part B:** Trained three custom MLP architectures in PyTorch to classify handwritten Hiragana characters from the KMNIST dataset.
-- Evaluated the effect of model depth, neuron counts, and dropout rates on accuracy and generalization.
+## Part A – Perceptron from Scratch
 
-## 📚 Dataset
-- **KMNIST Dataset:** 70,000 grayscale images (28×28) of 10 Hiragana characters.
-- **Preprocessing:** Flattened images, normalized pixel values, and encoded class labels.
+A basic multi-class Perceptron was implemented using only NumPy.  
+Key tasks included:
 
-## 🛠️ Methods
-- **Perceptron (Part A):** Manually implemented forward and backward propagation.
-- **MLPs (Part B Experiments):**
-  - Experiment 1: 2-layer MLP (256→128) with 20% dropout.
-  - Experiment 2: 3-layer deeper MLP (512→256→128) with higher dropout.
-  - Experiment 3: Minimal 2-layer MLP (128→64) with strong 50% dropout.
-- **Training:** Adam optimizer, CrossEntropyLoss, fixed hyperparameters (learning rate = 0.001, batch size = 128, epochs = 500).
+- Forward pass computation
+- Backpropagation and weight updates
+- Manual accuracy calculation
 
-## 🔥 Key Results
-- **Best Test Accuracy:** 92.51% (Experiment 2 – Deeper Architecture).
-- Deeper networks improved generalization; excessive dropout in smaller models caused underfitting.
-- Loss curves and confusion matrices indicated stable training without overfitting spikes.
+Constraints:
+- Only NumPy and Pandas were allowed (no PyTorch or Scikit-learn)
 
-## 📈 Insights
-- Depth and moderate dropout improve MLP performance on complex handwriting datasets.
-- Heavy regularization severely limits model capacity on image tasks without convolutional layers.
+---
 
-## 📌 Technologies Used
-- Python (NumPy, PyTorch)
-- Jupyter Notebook
-- Matplotlib for visualization
+## Part B – Neural Network Experiments on KMNIST
 
-## 🚀 Future Improvements
-- Extend to CNN architectures for spatial feature extraction.
-- Apply data augmentation to improve robustness.
-- Implement early stopping and hyperparameter tuning.
+The KMNIST dataset contains 70,000 grayscale images (28x28) of handwritten Hiragana characters across 10 classes.  
+Images were flattened into 784-dimensional vectors.
 
-## 📜 Acknowledgements
-This project was completed individually for academic purposes under the **Master of Data Science and Innovation** at **UTS**.  
-All code and analysis are original work by **Kunal Gurung**.
+### Preprocessing
+- Normalized pixel values
+- Encoded class labels
+- Flattened image arrays
+
+### Architectures Tested
+
+1. **Experiment 1** – Shallow 2-layer MLP (256 → 128), dropout: 20%  
+2. **Experiment 2** – Deep 3-layer MLP (512 → 256 → 128), dropout: 30%  
+3. **Experiment 3** – Small 2-layer MLP (128 → 64), dropout: 50%  
+
+### Training Setup
+
+- Optimizer: Adam
+- Loss Function: CrossEntropyLoss
+- Learning Rate: 0.001
+- Batch Size: 128
+- Epochs: 500
+- Layers used: Fully Connected (Linear), Dropout
+
+---
+
+## Results
+
+- **Best Accuracy**: 92.51% (Experiment 2)
+- Deeper networks showed better generalization
+- Over-regularization led to underfitting in smaller models
+- Training was stable with no overfitting spikes
+
+---
+
+## Key Insights
+
+- Model depth improves performance on handwriting datasets, even without CNNs
+- Moderate dropout helps regularize effectively
+- High dropout in small networks reduces learning capacity
+
+---
+
+## Technologies Used
+
+- Python
+- NumPy (Part A)
+- PyTorch (Part B)
+- Matplotlib, TQDM for visualizations and progress tracking
+
+---
+
+## Future Work
+
+- Extend models using Convolutional Neural Networks (CNNs)
+- Add early stopping and learning rate scheduling
+- Apply data augmentation techniques to increase generalization
+
+---
+
+## Academic Integrity Notice
+
+This repository is shared publicly for learning and demonstration purposes only.  
+Unauthorized copying or direct submission of this work for academic credit is strictly prohibited and may be considered academic misconduct.
+
+---
+
+## Author
+
+Kunal Gurung  
+Master of Data Science and Innovation  
+University of Technology Sydney
